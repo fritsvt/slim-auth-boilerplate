@@ -34,3 +34,10 @@ foreach (glob(__DIR__ . "/../routes/*.php") as $filename)
 {
     include $filename;
 }
+
+// Include all helpers
+// Inlude all route files from the routes directory
+foreach (glob(__DIR__ . "/../helpers/*.php") as $filename)
+{
+    include $filename;
+}

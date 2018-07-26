@@ -2,7 +2,7 @@
 
 require __DIR__ . '/bootstrap/app.php';
 
-$DatabaseConfig = (new \App\Helpers\Config())->get('database');
+$DatabaseConfig = config('database');
 
 return [
     'paths' => [
