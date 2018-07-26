@@ -33,6 +33,11 @@ Install all the required dependencies
 composer install
 ```
 
+Edit your config after running this command
+```
+cd bootstrap && cp config.example.php config.php
+```
+
 Run your DB migrations
 ```
 php phinx migrate
