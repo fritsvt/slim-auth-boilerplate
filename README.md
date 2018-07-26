@@ -1,17 +1,59 @@
-# Slim Framework 3 Php-Di Skeleton
+# Slim 3 Authentication boilerplate
 
 This is a simple Slim 3 skeleton to quickly get started building your Slim 3 applications.
-For this application I have chosen a php-di/slim-bridge for dependency injection.
+
+The project was designed to easily run on shared webhosts so by default there is no `public` directory. But, If you do have access to a commandline I would encourage you to change this over.
+
+**This setup includes:**
+
+- Dependency Injection
+- Twig templates
+- Eloquent ORM
+- Easy form validation
+- Phinx migrations
+- Basic authentication
+- CSRF protection middleware
+- Config helper
+- Symfony var dumper
 
 ### Installation
+
+Clone the repo
 ```
-composer create-project fritsvt/slim-skeleton
+git clone https://github.com/fritsvt/slim3-auth-boilerplate.git
 ```
 
-### Run the project
-To run the slim application simply execute the command below
+cd into your project dir
 ```
-php -S localhost:8000 -t public/
+cd slim3-auth-boierplate
 ```
 
-I hope to get this on composer soon....
+Install all the required dependencies
+```
+composer install
+```
+
+Run your DB migrations
+```
+php phinx migrate
+```
+
+Serve the web app
+```
+php -S localhost:8000
+```
+
+### Dependencies
+
+This boilerplate setup uses the following composer dependencies:
+
+- slim/slim
+- slim/twig-view
+- slim/flash
+- slim/csrf
+- php-di/slim-bridge
+- symfony/var-dumper
+- robmorgan/phinx
+- illuminate/database
+- respect/validation
+- google/recaptcha
