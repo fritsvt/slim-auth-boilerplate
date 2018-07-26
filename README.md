@@ -62,3 +62,5 @@ This boilerplate setup uses the following composer dependencies:
 - illuminate/database
 - respect/validation
 - google/recaptcha
+
+If you have any questions, suggestions or general feedback feel free to open an issue.
