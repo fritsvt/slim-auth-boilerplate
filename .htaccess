@@ -5,10 +5,11 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.php [QSA,L]
 
 # Protect our backend code when hosting on public host.
-<Files ~ "^.*\.php|.*\.scss|.*\.twig">
+<Files ~ "^.*\.php|.*\.scss|.*\.twig|.*\.md|.*\.lock|composer\.json|mix-manifest\.json|package\.json|package-lock\.json|phinx|.gitignore">
   Deny from all
 </Files>
 
-<FilesMatch "^(index\.php)?$|css|js|.*\.png|.*\.jpg|.*\.gif">
+<FilesMatch "^(index\.php)?$|css|js$|.*\.png|.*\.jpg|.*\.gif">
+  	Order allow,deny
     Allow from all
 </FilesMatch>
