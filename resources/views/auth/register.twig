@@ -1,0 +1,101 @@
+{% extends 'layouts/app.twig' %}
+
+{% block title %} Register {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Register</div>
+
+                <div class="card-body">
+                    <form method="POST" action="">
+                        {{ csrf.field | raw }}
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control {% if errors.name %} is-invalid {% endif %}" name="name" value="{{ old.name }}" required autofocus>
+
+                                {% if errors.name %}
+                                    <span class="invalid-feedback">
+                                        <strong>{{ errors.name | first }}</strong>
+                                    </span>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control {% if errors.email %} is-invalid {% endif %}" name="email" value="{{ old.email }}" required>
+
+                                {% if errors.email %}
+                                    <span class="invalid-feedback">
+                                        <strong>{{ errors.email | first }}</strong>
+                                    </span>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control {% if errors.password %} is-invalid {% endif %}" name="password" required>
+
+                                {% if errors.password %}
+                                    <span class="invalid-feedback">
+                                        <strong>{{ errors.password | first }}</strong>
+                                    </span>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirm password</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control {% if errors.password_verify %} is-invalid {% endif %}" name="password_verify" required>
+
+                                {% if errors.password_verify %}
+                                    <span class="invalid-feedback">
+                                        <strong>{{ errors.password_verify | first }}</strong>
+                                    </span>
+                                {% endif %}
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="g-recaptcha col-md-6 offset-md-4" data-sitekey="6LdammYUAAAAAMtGoT9S0NXasz89YOMLGbLeUvjo"></div>
+
+                            {% if errors['g-recaptcha-response'] %}
+                                <span class="invalid-feedback d-block col-md-6 offset-md-4">
+                                    <strong>Please solve the captcha</strong>
+                                </span>   
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Register
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+<script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}

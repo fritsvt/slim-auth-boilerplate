@@ -1,0 +1,10 @@
+<?php
+
+unset($argv[0]);
+$argv = implode(" ",$argv);
+
+exec(getcwd() . '/vendor/robmorgan/phinx/bin/phinx ' . $argv, $output);
+
+foreach ($output as $x) {
+    echo $x . "\n";
+}

@@ -1,0 +1,22 @@
+{
+    "name": "fritsvt/slim-skeleton",
+    "description": "Simple slim skeleton using php-di bridge and twig views",
+    "type": "project",
+    "require": {
+        "php-di/slim-bridge": "1.0.2",
+        "symfony/var-dumper": "^4.1",
+        "slim/slim": "^3.10",
+        "slim/twig-view": "^2.4",
+        "robmorgan/phinx": "^0.10.5",
+        "illuminate/database": "^5.6",
+        "respect/validation": "^1.1",
+        "slim/flash": "^0.4.0",
+        "google/recaptcha": "^1.1",
+        "slim/csrf": "^0.8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        }
+    }
+}

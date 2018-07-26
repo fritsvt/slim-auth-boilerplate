@@ -1,0 +1,14 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+# Protect our backend code when hosting on public host.
+<Files ~ "^.*\.php|.*\.scss|.*\.twig">
+  Deny from all
+</Files>
+
+<FilesMatch "^(index\.php)?$|css|js|.*\.png|.*\.jpg|.*\.gif">
+    Allow from all
+</FilesMatch>
