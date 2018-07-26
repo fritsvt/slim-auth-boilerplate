@@ -57,7 +57,7 @@ class AuthController
         }
 
         $auth = $auth->attempt(
-            $request->getParam('username'),
+            $request->getParam('email'),
             $request->getParam('password')
         );
         if (!$auth) {
