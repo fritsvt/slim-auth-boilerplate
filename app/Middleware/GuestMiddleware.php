@@ -9,7 +9,7 @@ class GuestMiddleware extends Middleware {
     {
         $container = $this->container;
         if ($container->get(Auth::class)->check()) {
-            $container->get(Messages::class)->addMessage('home-info', 'Je bent al ingelogd');
+            $container->get(Messages::class)->addMessage('info', 'Je bent al ingelogd');
             return $response->withRedirect($container->get(Router::class)->pathFor('home'));
         }
         $response = $next($request, $response);
