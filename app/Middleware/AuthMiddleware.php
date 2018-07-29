@@ -11,7 +11,7 @@ class AuthMiddleware extends Middleware {
         $container = $this->container;
         if (!$container->get(Auth::class)->check()) {
             $container->get(Messages::class)->addMessage('warning', 'Log in om verder te gaan');
-            return $response->withRedirect($container->get(Router::class)->pathFor('auth.login'));
+            return $response->withRedirect($container->get(Router::class)->pathFor('login'));
         }
         $response = $next($request, $response);
         return $response;
