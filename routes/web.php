@@ -2,12 +2,9 @@
 
 use App\Middleware\AuthMiddleware;
 use App\Middleware\GuestMiddleware;
-use App\Middleware\ApiMiddleware;
 use Slim\Views\Twig;
 use App\Middleware\CsrfViewMiddleware;
 use Slim\Csrf\Guard;
-
-$container = $app->getContainer();
 
 // CSRF protected routes
 $app->group('', function() {

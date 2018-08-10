@@ -1,5 +1,5 @@
 {
-  "name": "assie",
+  "name": "slim3",
   "version": "1.0.0",
   "description": "Slim3 boilerplate",
   "main": "webpack.mix.js",
@@ -12,12 +12,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/frits/assie.git"
+    "url": "https://github.com/fritsvt/slim3-auth-boilerplate"
   },
   "author": "Frits van Turnhout",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/frits/assie/issues"
+    "url": "https://github.com/fritsvt/slim3-auth-boilerplate/issues"
   },
   "homepage": "https://gitlab.com/frits/assie#README",
   "devDependencies": {

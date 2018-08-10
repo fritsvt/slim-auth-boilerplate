@@ -36,10 +36,6 @@ return [
             $c->get('request')->getUri()
         ));
 
-        $twig->getEnvironment()->addGlobal('config', [
-            'captcha_public' => (new \App\Helpers\Config())->get('re_captcha.public')
-        ]);
-
         $twig->getEnvironment()->addGlobal('auth', [
             'check' => $c->get(Auth::class)->check(),
             'user' => $c->get(Auth::class)->user(),
@@ -48,6 +44,7 @@ return [
         $twig->getEnvironment()->addGlobal('flash', $c->get(Messages::class));
 
         $twig->addExtension(new \App\Views\DebugExtension);
+        $twig->addExtension(new \App\Views\ConfigExtension);
 
         return $twig;
     }

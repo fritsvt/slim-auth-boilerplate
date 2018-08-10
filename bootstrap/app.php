@@ -36,6 +36,8 @@ foreach (glob(__DIR__ . "/../routes/*.php") as $filename)
 }
 
 // Include all helpers
+$container = $app->getContainer();
+
 foreach (glob(__DIR__ . "/../helpers/*.php") as $filename)
 {
     include $filename;
