@@ -21,7 +21,11 @@
   },
   "homepage": "https://gitlab.com/frits/assie#README",
   "devDependencies": {
-    "cross-env": "^5.2.0",
-    "laravel-mix": "^2.1.11"
+    "cross-env": "^5.1",
+    "laravel-mix": "^4.0.7",
+    "resolve-url-loader": "^2.3.1",
+    "sass": "^1.19.0",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.6.10"
   }
 }
