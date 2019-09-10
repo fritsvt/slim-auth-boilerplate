@@ -3,16 +3,17 @@
     "description": "Simple slim skeleton using php-di bridge and twig views",
     "type": "project",
     "require": {
-        "php-di/slim-bridge": "1.0.2",
+        "php-di/slim-bridge": "3.0.0",
         "symfony/var-dumper": "^4.1",
-        "slim/slim": "^3.10",
-        "slim/twig-view": "^2.4",
+        "slim/slim": "^4.2.0",
+        "slim/twig-view": "3.0.0-beta",
         "robmorgan/phinx": "^0.10.5",
         "illuminate/database": "^5.8",
-        "respect/validation": "^1.1",
+        "illuminate/validation": "^5.8",
         "slim/flash": "^0.4.0",
         "google/recaptcha": "^1.1",
-        "slim/csrf": "^0.8.2"
+        "slim/csrf": "^0.8.3",
+        "slim/psr7": "^0.5.0"
     },
     "autoload": {
         "psr-4": {

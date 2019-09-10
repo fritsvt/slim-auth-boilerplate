@@ -10,7 +10,7 @@
                 <div class="card-header">Login</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ path_for('login') }}">
+                    <form method="POST" action="{{ url_for('login') }}">
                         {{ csrf.field | raw }}
 
                         <div class="form-group row">
@@ -46,7 +46,7 @@
 
                             {% if errors['g-recaptcha-response'] %}
                                 <span class="invalid-feedback d-block col-md-6 offset-md-4">
-                                    <strong>Please solve the captcha</strong>
+                                    <strong>{{errors['g-recaptcha-response'] | first}}</strong>
                                 </span>   
                             {% endif %}
                         </div>

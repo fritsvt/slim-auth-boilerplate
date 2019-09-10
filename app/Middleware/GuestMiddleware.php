@@ -5,14 +5,17 @@ use App\Auth\Auth;
 use Slim\Flash\Messages;
 use Slim\Router;
 class GuestMiddleware extends Middleware {
-    public function __invoke($request, $response, $next)
+
+    public function __invoke($request, $handler)
     {
         $container = $this->container;
+
         if ($container->get(Auth::class)->check()) {
             $container->get(Messages::class)->addMessage('info', 'Je bent al ingelogd');
-            return $response->withRedirect($container->get(Router::class)->pathFor('home'));
+            return redirect()->route('home');
         }
-        $response = $next($request, $response);
-        return $response;
+
+        return $handler->handle($request);
     }
+
 }

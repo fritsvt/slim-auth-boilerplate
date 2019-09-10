@@ -10,7 +10,7 @@
                 <div class="card-header">Register</div>
 
                 <div class="card-body">
-                    <form method="POST" action="">
+                    <form method="POST" action="{{ url_for('register') }}">
                         {{ csrf.field | raw }}
 
                         <div class="form-group row">
@@ -59,7 +59,7 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirm password</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control {% if errors.password_verify %} is-invalid {% endif %}" name="password_verify" required>
+                                <input id="password-confirm" type="password" class="form-control {% if errors.password_verify %} is-invalid {% endif %}" name="password_confirmation" required>
 
                                 {% if errors.password_verify %}
                                     <span class="invalid-feedback">
@@ -75,7 +75,7 @@
 
                             {% if errors['g-recaptcha-response'] %}
                                 <span class="invalid-feedback d-block col-md-6 offset-md-4">
-                                    <strong>Please solve the captcha</strong>
+                                    <strong>{{errors['g-recaptcha-response'] | first}}</strong>
                                 </span>   
                             {% endif %}
                         </div>
