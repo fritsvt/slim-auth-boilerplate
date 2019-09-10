@@ -1,6 +1,6 @@
 # Slim 3 Authentication boilerplate
 
-This is a simple Slim 3 skeleton to quickly get started building your Slim 3 applications.
+This is a simple Slim 3 skeleton to quickly get started building your Slim applications.
 
 The project was designed to easily run on shared webhosts so by default there is no `public` directory. But, If you do have access to a commandline I would encourage you to change this over.
 
