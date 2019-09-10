@@ -25,7 +25,7 @@ git clone -b slim3 https://github.com/fritsvt/slim-auth-boilerplate.git
 
 cd into your project dir
 ```
-cd slim-auth-boierplate
+cd slim-auth-boilerplate
 ```
 
 Install all the required dependencies
