@@ -11,21 +11,7 @@ class User extends Model
     protected $fillable = [
         'name',
         'email',
-        'password',
-        'ip',
-        'cv',
-        'available',
-        'public_profile',
-        'profile_picture',
-        'bio',
-        'summary',
-        'birthday',
-        'address',
-        'postal_code',
-        'city',
-        'phone',
-        'drivers_license',
-        'gender'
+        'password'
     ];
 
     public function setPassword($password)

@@ -1,40 +1,40 @@
 <?php
 
+use App\Validation\Rules\ReCaptcha;
+use App\Validation\ValidatorFactory;
 use Slim\Views\Twig;
-use Slim\Views\TwigExtension;
-use Interop\Container\ContainerInterface;
-use function DI\get;
+use Psr\Container\ContainerInterface;
 
-use App\Validation\Contracts\ValidatorInterface;
-use App\Validation\Validator;
 use Slim\Flash\Messages;
 use App\Auth\Auth;
-use Slim\Csrf\Guard;
 
 return [
-    'router' => get(Slim\Router::class),
-    ValidatorInterface::class => function(ContainerInterface $c) {
-        return new Validator;
+    ValidatorFactory::class => function(ContainerInterface $c) {
+        $validator = new ValidatorFactory($c);
+        $_SESSION['valid_captcha'] = false;
+        $validator->extend('recaptcha', function ($attribute, $value, $parameters, $validator) {
+            $recaptcha = new \ReCaptcha\ReCaptcha(config('captcha.private'));
+            if (!isset($_SESSION['valid_captcha']) || $_SESSION['valid_captcha'] == false) {
+                $_SESSION['valid_captcha'] = $recaptcha->verify($value, 'slim3-auth-boilerplate.test')->isSuccess();
+            } else {
+                return $_SESSION['valid_captcha'];
+            }
+            return $_SESSION['valid_captcha'];
+        });
+
+        return $validator;
     },
     Auth::class => function(ContainerInterface $c){
         return new Auth;
-    },
-    Guard::class => function (ContainerInterface $c) {
-        return new Guard();
     },
     Messages::class => function(ContainerInterface $c) {
         return new Messages();
     },
     Twig::class => function (ContainerInterface $c) {
         $twig = new Twig(__DIR__.'/../resources/views', [
-            'cache' => (new App\Helpers\Config())->get('production') === true ? __DIR__ . '/../resources/views/cache' : false,
+            'cache' => (new App\Helpers\Config())->get('production') === true ? __DIR__ . '/../resources/cache/views' : false,
             'debug' => (new App\Helpers\Config())->get('production') !== true
         ]);
-
-        $twig->addExtension(new TwigExtension(
-            $c->get('router'),
-            $c->get('request')->getUri()
-        ));
 
         $twig->getEnvironment()->addGlobal('auth', [
             'check' => $c->get(Auth::class)->check(),

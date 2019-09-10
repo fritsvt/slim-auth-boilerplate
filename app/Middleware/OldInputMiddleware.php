@@ -13,14 +13,13 @@ class OldInputMiddleware
         $this->view = $view;
     }
 
-    public function __invoke($request, $response, $next) {
+    public function __invoke($request, $handler) {
         if (isset($_SESSION['old'])) {
             $this->view->getEnvironment()->addGlobal('old', $_SESSION['old']);
         }
 
-        $_SESSION['old'] = $request->getParams();
+        $_SESSION['old'] = $request->getParsedBody();
 
-        $response = $next($request, $response);
-        return $response;
+        return $handler->handle($request);
     }
 }

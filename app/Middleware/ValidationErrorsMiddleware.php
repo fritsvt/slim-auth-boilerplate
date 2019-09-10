@@ -13,7 +13,7 @@ class ValidationErrorsMiddleware
         $this->view = $view;
     }
 
-    public function __invoke($request, $response, $next) {
+    public function __invoke($request, $handler) {
 
         if (isset($_SESSION['errors'])) {
             $this->view->getEnvironment()->addGlobal('errors', $_SESSION['errors']);
@@ -21,7 +21,6 @@ class ValidationErrorsMiddleware
         }
 
 
-        $response = $next($request, $response);
-        return $response;
+        return $handler->handle($request);
     }
 }

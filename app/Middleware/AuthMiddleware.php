@@ -6,14 +6,15 @@ use Slim\Flash\Messages;
 use Slim\Router;
 
 class AuthMiddleware extends Middleware {
-    public function __invoke($request, $response, $next)
+    public function __invoke($request, $handler)
     {
         $container = $this->container;
+
         if (!$container->get(Auth::class)->check()) {
             $container->get(Messages::class)->addMessage('warning', 'Log in om verder te gaan');
-            return $response->withRedirect($container->get(Router::class)->pathFor('login'));
+            return redirect()->route('login');
         }
-        $response = $next($request, $response);
-        return $response;
+
+        return $handler->handle($request);
     }
 }
