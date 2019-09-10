@@ -1,6 +1,6 @@
-# Slim 3 Authentication boilerplate
+# Slim 4 Authentication boilerplate
 
-This is a simple Slim 3 skeleton to quickly get started building your Slim 3 applications.
+This is a simple Slim 4 skeleton to quickly get started building your Slim applications.
 
 The project was designed to easily run on shared webhosts so by default there is no `public` directory. But, If you do have access to a commandline I would encourage you to change this over.
 
@@ -11,7 +11,7 @@ The project was designed to easily run on shared webhosts so by default there is
 - Eloquent ORM
 - Easy form validation
 - Phinx migrations
-- Basic authentication
+- Session based authentication
 - CSRF protection middleware
 - Config helper
 - Symfony var dumper
@@ -20,12 +20,12 @@ The project was designed to easily run on shared webhosts so by default there is
 
 Clone the repo
 ```
-git clone https://github.com/fritsvt/slim3-auth-boilerplate.git
+git clone https://github.com/fritsvt/slim-auth-boilerplate.git
 ```
 
 cd into your project dir
 ```
-cd slim3-auth-boierplate
+cd slim-auth-boierplate
 ```
 
 Install all the required dependencies
@@ -53,6 +53,7 @@ php -S localhost:8000
 This boilerplate setup uses the following composer dependencies:
 
 - slim/slim
+- slim/psr-7
 - slim/twig-view
 - slim/flash
 - slim/csrf
@@ -60,7 +61,7 @@ This boilerplate setup uses the following composer dependencies:
 - symfony/var-dumper
 - robmorgan/phinx
 - illuminate/database
-- respect/validation
+- illuminate/validation
 - google/recaptcha
 
 If you have any questions, suggestions or general feedback feel free to open an issue.
