@@ -20,12 +20,12 @@ The project was designed to easily run on shared webhosts so by default there is
 
 Clone the repo
 ```
-git clone https://github.com/fritsvt/slim3-auth-boilerplate.git
+git clone -b slim3 https://github.com/fritsvt/slim-auth-boilerplate.git
 ```
 
 cd into your project dir
 ```
-cd slim3-auth-boierplate
+cd slim-auth-boierplate
 ```
 
 Install all the required dependencies
